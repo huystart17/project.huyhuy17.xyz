@@ -109,3 +109,6 @@ $RECYCLE.BIN/
 # Others
 lib/
 data/
+
+# Một số loại cache
+.cache/*.json
