@@ -54,6 +54,16 @@ const getFilename = url => {
             .shift();
     }
 };
+
+const download = async (src, filepath) => {
+    if (src.match(/http:\/\//)) {
+        let file = getFilename(src);
+        file && (await downloadHttp(src, filePath));
+    } else if (src.match(/https:\/\//)) {
+        let file = getFilename(src);
+        file && (await downloadHttps(src, filePath));
+    }
+};
 (async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
