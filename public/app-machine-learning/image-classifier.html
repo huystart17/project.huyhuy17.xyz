@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>Phân biệt hình ảnh</title>
-  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png"/>
-  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png"/>
-  <link rel="icon" href="../assets/img/logo.png" type="image/png" sizes="16x16">
-  <link rel="stylesheet" href="../assets/vendor/pace/pace.css">
-  <script src="../assets/vendor/pace/pace.min.js"></script>
-  <!--vendors-->
-  <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-  <link rel="stylesheet" type="text/css" href="../assets/vendor/jquery-scrollbar/jquery.scrollbar.css">
-  <link rel="stylesheet" href="../assets/vendor/select2/css/select2.min.css">
-  <link rel="stylesheet" href="../assets/vendor/jquery-ui/jquery-ui.min.css">
-  <link rel="stylesheet" href="../assets/vendor/daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" href="../assets/vendor/timepicker/bootstrap-timepicker.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
-  <!--Material Icons-->
-  <link rel="stylesheet" type="text/css" href="../assets/fonts/materialdesignicons/materialdesignicons.min.css">
-  <!--Material Icons-->
-  <link rel="stylesheet" type="text/css" href="../assets/fonts/feather/feather-icons.css">
-  <!--Bootstrap + atmos Admin CSS-->
-  <link rel="stylesheet" type="text/css" href="../assets/css/atmos.min.css">
-  <!-- Additional library for page -->
 
-  <!--  Link machine learning-->
-  <!-- p5 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
-  <!-- ml5 -->
-  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Phân biệt hình ảnh</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="icon" href="../assets/img/logo.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="../assets/vendor/pace/pace.css">
+    <script src="../assets/vendor/pace/pace.min.js"></script>
+    <!--vendors-->
+    <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/vendor/jquery-scrollbar/jquery.scrollbar.css">
+    <link rel="stylesheet" href="../assets/vendor/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/vendor/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="../assets/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../assets/vendor/timepicker/bootstrap-timepicker.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
+    <!--Material Icons-->
+    <link rel="stylesheet" type="text/css" href="../assets/fonts/materialdesignicons/materialdesignicons.min.css">
+    <!--Material Icons-->
+    <link rel="stylesheet" type="text/css" href="../assets/fonts/feather/feather-icons.css">
+    <!--Bootstrap + atmos Admin CSS-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/atmos.min.css">
+    <!-- Additional library for page -->
+
+    <!--  Link machine learning-->
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
 </head>
+
 <body class="sidebar-pinned ">
-<aside class="admin-sidebar">
-  <div class="admin-sidebar-brand">
-    <!-- begin sidebar branding-->
-    <img class="admin-brand-logo" src="/assets/img/logo.png" width="40" alt="atmos Logo">
-    <!-- end sidebar branding-->
-    <div class="ml-auto">
-      <!-- sidebar pin-->
-      <a href="#" class="admin-pin-sidebar btn-ghost btn btn-rounded-circle"></a>
-      <!-- sidebar close for mobile device-->
-      <a href="#" class="admin-close-sidebar"></a>
-    </div>
-  </div>
-  <div class="admin-sidebar-wrapper js-scrollbar">
-    <ul class="menu">
-      <li class="menu-item active ">
-        <a href="#" class="open-dropdown menu-link">
+    <aside class="admin-sidebar">
+        <div class="admin-sidebar-brand">
+            <!-- begin sidebar branding-->
+            <img class="admin-brand-logo" src="/assets/img/logo.png" width="40" alt="atmos Logo">
+            <!-- end sidebar branding-->
+            <div class="ml-auto">
+                <!-- sidebar pin-->
+                <a href="#" class="admin-pin-sidebar btn-ghost btn btn-rounded-circle"></a>
+                <!-- sidebar close for mobile device-->
+                <a href="#" class="admin-close-sidebar"></a>
+            </div>
+        </div>
+        <div class="admin-sidebar-wrapper js-scrollbar">
+            <ul class="menu">
+                <li class="menu-item active ">
+                    <a href="#" class="open-dropdown menu-link">
                         <span class="menu-label">
                                                 <span class="menu-name">Trang chủ
                                                     <span class="menu-arrow"></span>
@@ -64,11 +66,11 @@
                                                  <i class="icon-placeholder fe fe-activity "></i>
                                             </span>
         </a>
-        <!--submenu-->
-        <ul class="sub-menu">
+                    <!--submenu-->
+                    <ul class="sub-menu">
 
-          <li class="menu-item ">
-            <a href="index.html" class=" menu-link">
+                        <li class="menu-item ">
+                            <a href="index.html" class=" menu-link">
                                             <span class="menu-label">
                                                 <span class="menu-name">Dashboard 1</span>
                                             </span>
@@ -78,9 +80,9 @@
                                                 </i>
                                             </span>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="dashboard-02.html" class=" menu-link">
+                        </li>
+                        <li class="menu-item">
+                            <a href="dashboard-02.html" class=" menu-link">
                                             <span class="menu-label">
                                                 <span class="menu-name">Dashboard 2</span>
                                             </span>
@@ -90,9 +92,9 @@
                                                 </i>
                                             </span>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="dashboard-03.html" class=" menu-link">
+                        </li>
+                        <li class="menu-item">
+                            <a href="dashboard-03.html" class=" menu-link">
                                             <span class="menu-label">
                                                 <span class="menu-name">Dashboard 3</span>
                                             </span>
@@ -102,9 +104,9 @@
                                                 </i>
                                             </span>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="dashboard-04.html" class=" menu-link">
+                        </li>
+                        <li class="menu-item">
+                            <a href="dashboard-04.html" class=" menu-link">
                                             <span class="menu-label">
                                                 <span class="menu-name">Dashboard 4</span>
                                             </span>
@@ -114,12 +116,12 @@
                                                 </i>
                                             </span>
             </a>
-          </li>
+                        </li>
 
-        </ul>
-      </li>
-      <li class="menu-item ">
-        <a href="#" class="open-dropdown menu-link">
+                    </ul>
+                </li>
+                <li class="menu-item ">
+                    <a href="#" class="open-dropdown menu-link">
                         <span class="menu-label">
                                                 <span class="menu-name">Học máy
                                                     <span class="menu-arrow"></span>
@@ -128,11 +130,11 @@
                                                  <i class="icon-placeholder fe fe-edit "></i>
                                             </span>
         </a>
-        <!--submenu-->
-        <ul class="sub-menu">
+                    <!--submenu-->
+                    <ul class="sub-menu">
 
-          <li class="menu-item">
-            <a href="forms.html" class=" menu-link">
+                        <li class="menu-item">
+                            <a href="forms.html" class=" menu-link">
                                         <span class="menu-label">
                                                 <span class="menu-name">Basic
                                                 </span>
@@ -142,9 +144,9 @@
                                                     <i class="icon-placeholder mdi mdi-checkbook "></i>
                                             </span>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-custom.html" class=" menu-link">
+                        </li>
+                        <li class="menu-item">
+                            <a href="forms-custom.html" class=" menu-link">
                                         <span class="menu-label">
                                                 <span class="menu-name">Custom Controls
                                                 </span>
@@ -155,9 +157,9 @@
                                                       class="icon-placeholder mdi mdi-checkbox-multiple-marked-circle "></i>
                                             </span>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-advance.html" class=" menu-link">
+                        </li>
+                        <li class="menu-item">
+                            <a href="forms-advance.html" class=" menu-link">
                                         <span class="menu-label">
                                                 <span class="menu-name">Advance
                                                 </span>
@@ -167,9 +169,9 @@
                                                     <i class="icon-placeholder mdi mdi-calendar-edit "></i>
                                             </span>
             </a>
-          </li>
-          <li class="menu-item">
-            <a href="forms-wizard.html" class=" menu-link">
+                        </li>
+                        <li class="menu-item">
+                            <a href="forms-wizard.html" class=" menu-link">
                                         <span class="menu-label">
                                                 <span class="menu-name">Wizard
                                                 </span>
@@ -179,312 +181,303 @@
                                                     <i class="icon-placeholder mdi mdi-step-forward  "></i>
                                             </span>
             </a>
-          </li>
+                        </li>
 
 
-        </ul>
-      </li>
+                    </ul>
+                </li>
 
 
-    </ul>
-    </li>
+            </ul>
+            </li>
 
-    </ul>
-    </li>
-    </ul>
+            </ul>
+            </li>
+            </ul>
 
-  </div>
+        </div>
 
-</aside>
-<main class="admin-main">
-  <!--site header begins-->
-  <header class="admin-header">
+    </aside>
+    <main class="admin-main">
+        <!--site header begins-->
+        <header class="admin-header">
 
-    <a href="#" class="sidebar-toggle" data-toggleclass="sidebar-open" data-target="body"> </a>
+            <a href="#" class="sidebar-toggle" data-toggleclass="sidebar-open" data-target="body"> </a>
 
-    <nav class=" mr-auto my-auto">
-      <ul class="nav align-items-center">
+            <nav class=" mr-auto my-auto">
+                <ul class="nav align-items-center">
 
-        <li class="nav-item">
-          <a class="nav-link  " data-target="#siteSearchModal" data-toggle="modal" href="#">
+                    <li class="nav-item">
+                        <a class="nav-link  " data-target="#siteSearchModal" data-toggle="modal" href="#">
             <i class=" mdi mdi-magnify mdi-24px align-middle"></i>
           </a>
-        </li>
-      </ul>
-    </nav>
-    <nav class=" ml-auto">
-      <ul class="nav align-items-center">
+                    </li>
+                </ul>
+            </nav>
+            <nav class=" ml-auto">
+                <ul class="nav align-items-center">
 
-        <li class="nav-item">
-          <div class="dropdown">
-            <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
               class="mdi mdi-24px mdi-bell-outline"></i>
               <span class="notification-counter"></span>
             </a>
 
-            <div class="dropdown-menu notification-container dropdown-menu-right">
-              <div class="d-flex p-all-15 bg-white justify-content-between border-bottom ">
-                <a href="#!" class="mdi mdi-18px mdi-settings text-muted"></a>
-                <span class="h5 m-0">Notifications</span>
-                <a href="#!" class="mdi mdi-18px mdi-notification-clear-all text-muted"></a>
-              </div>
-              <div class="notification-events bg-gray-300">
-                <div class="text-overline m-b-5">today</div>
-                <a href="#" class="d-block m-b-10">
-                  <div class="card">
-                    <div class="card-body"><i class="mdi mdi-circle text-success"></i> All systems operational.</div>
-                  </div>
-                </a>
-                <a href="#" class="d-block m-b-10">
-                  <div class="card">
-                    <div class="card-body"><i class="mdi mdi-upload-multiple "></i> File upload successful.</div>
-                  </div>
-                </a>
-                <a href="#" class="d-block m-b-10">
-                  <div class="card">
-                    <div class="card-body">
-                      <i class="mdi mdi-cancel text-danger"></i> Your holiday has been denied
-                    </div>
-                  </div>
-                </a>
+                            <div class="dropdown-menu notification-container dropdown-menu-right">
+                                <div class="d-flex p-all-15 bg-white justify-content-between border-bottom ">
+                                    <a href="#!" class="mdi mdi-18px mdi-settings text-muted"></a>
+                                    <span class="h5 m-0">Notifications</span>
+                                    <a href="#!" class="mdi mdi-18px mdi-notification-clear-all text-muted"></a>
+                                </div>
+                                <div class="notification-events bg-gray-300">
+                                    <div class="text-overline m-b-5">today</div>
+                                    <a href="#" class="d-block m-b-10">
+                                        <div class="card">
+                                            <div class="card-body"><i class="mdi mdi-circle text-success"></i> All systems operational.</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="d-block m-b-10">
+                                        <div class="card">
+                                            <div class="card-body"><i class="mdi mdi-upload-multiple "></i> File upload successful.</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="d-block m-b-10">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <i class="mdi mdi-cancel text-danger"></i> Your holiday has been denied
+                                            </div>
+                                        </div>
+                                    </a>
 
 
-              </div>
+                                </div>
 
-            </div>
-          </div>
-        </li>
-        <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
-            <div class="avatar avatar-sm avatar-online">
-              <span class="avatar-title rounded-circle bg-dark">V</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar avatar-sm avatar-online">
+                                <span class="avatar-title rounded-circle bg-dark">V</span>
 
-            </div>
-          </a>
-          <div class="dropdown-menu  dropdown-menu-right">
-            <a class="dropdown-item" href="#"> Add Account
+                            </div>
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right">
+                            <a class="dropdown-item" href="#"> Add Account
             </a>
-            <a class="dropdown-item" href="#"> Reset Password</a>
-            <a class="dropdown-item" href="#"> Help </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#"> Logout</a>
-          </div>
-        </li>
+                            <a class="dropdown-item" href="#"> Reset Password</a>
+                            <a class="dropdown-item" href="#"> Help </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"> Logout</a>
+                        </div>
+                    </li>
 
-      </ul>
+                </ul>
 
-    </nav>
-  </header>
-  <!--site header ends -->
-  <section class="admin-content">
-    <div class="bg-dark m-b-30">
-      <div class="container">
-        <div class="row p-b-60 p-t-60">
+            </nav>
+        </header>
+        <!--site header ends -->
+        <section class="admin-content">
+            <div class="bg-dark m-b-30">
+                <div class="container">
+                    <div class="row p-b-60 p-t-60">
 
 
-        </div>
-      </div>
-    </div>
-    <div class="container pull-up">
-      <div class="row">
-
-        <div class="col-lg-12 m-b-30">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">Phân tích hình ảnh</div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-              <div id="app-1"></div>
-              <script>
-                let sketch = function (p) {
-                  // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
-                  let classifier;
+            <div class="container pull-up">
+                <div class="row">
 
-                  // A variable to hold the image we want to classify
-                  let img;
+                    <div class="col-lg-12 m-b-30">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Phân tích hình ảnh</div>
+                            </div>
+                            <div class="card-body">
+                                <div id="app-1"></div>
+                                <script>
+                                    let sketch = function(p) {
+                                        // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
+                                        let classifier;
 
-                  p.preload = () => {
-                    classifier = ml5.imageClassifier('MobileNet');
-                    img = p.loadImage('/app-machine-learning/images/dog1.png');
-                  };
+                                        // A variable to hold the image we want to classify
+                                        let img;
 
-                  p.setup = () => {
-                    p.createCanvas(200, 200);
-                    classifier.classify(img, gotResult);
-                    p.image(img, 0, 0);
-                  };
+                                        p.preload = () => {
+                                            classifier = ml5.imageClassifier('MobileNet');
+                                            img = p.loadImage('/app-machine-learning/images/dog1.png');
+                                        };
+
+                                        p.setup = () => {
+                                            p.createCanvas(200, 200);
+                                            classifier.classify(img, gotResult);
+                                            p.image(img, 0, 0);
+                                        };
 
 
-                  // A function to run when we get any errors and the results
-                  function gotResult(error, results) {
-                    // Display error in the console
-                    if (error) {
-                      console.error(error);
-                    } else {
-                      // The results are in an array ordered by confidence.
-                      console.log(results);
-                      p.createDiv(`Label: ${results[0].label}`);
-                      p.createDiv(`Confidence: ${nf(results[0].confidence, 0, 2)}`);
-                    }
-                  }
-                };
-                new p5(sketch, 'app-1');
-              </script>
+                                        // A function to run when we get any errors and the results
+                                        function gotResult(error, results) {
+                                            // Display error in the console
+                                            if (error) {
+                                                console.error(error);
+                                            } else {
+                                                // The results are in an array ordered by confidence.
+                                                console.log(results);
+                                                p.createDiv(`Label: ${results[0].label}`);
+                                                p.createDiv(`Confidence: ${nf(results[0].confidence, 0, 2)}`);
+                                            }
+                                        }
+                                    };
+                                    new p5(sketch, 'app-1');
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+        </section>
+    </main>
 
-<div class="modal modal-slide-left  fade" id="siteSearchModal" tabindex="-1" role="dialog"
-     aria-labelledby="siteSearchModal"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal modal-slide-left  fade" id="siteSearchModal" tabindex="-1" role="dialog" aria-labelledby="siteSearchModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
 
-      <div class="modal-body p-all-0" id="site-search">
-        <button type="button" class="close light" data-dismiss="modal" aria-label="Close">
+                <div class="modal-body p-all-0" id="site-search">
+                    <button type="button" class="close light" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <div class="form-dark bg-dark text-white p-t-60 p-b-20 bg-dots">
-          <h3 class="text-uppercase    text-center  fw-300 "> Search</h3>
+                    <div class="form-dark bg-dark text-white p-t-60 p-b-20 bg-dots">
+                        <h3 class="text-uppercase    text-center  fw-300 "> Search</h3>
 
-          <div class="container-fluid">
-            <div class="col-md-10 p-t-10 m-auto">
-              <input type="search" placeholder="Search Something"
-                     class=" search form-control form-control-lg">
+                        <div class="container-fluid">
+                            <div class="col-md-10 p-t-10 m-auto">
+                                <input type="search" placeholder="Search Something" class=" search form-control form-control-lg">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="bg-dark text-muted container-fluid p-b-10 text-center text-overline">
+                            results
+                        </div>
+                        <div class="list-group list  ">
+
+
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm "><img class="avatar-img rounded-circle" src="assets/img/users/user-3.jpg" alt="user-image"></div>
+                                </div>
+                                <div class="">
+                                    <div class="name">Eric Chen</div>
+                                    <div class="text-muted">Developer</div>
+                                </div>
+
+
+                            </div>
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm "><img class="avatar-img rounded-circle" src="assets/img/users/user-4.jpg" alt="user-image"></div>
+                                </div>
+                                <div class="">
+                                    <div class="name">Sean Valdez</div>
+                                    <div class="text-muted">Marketing</div>
+                                </div>
+
+
+                            </div>
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm "><img class="avatar-img rounded-circle" src="assets/img/users/user-8.jpg" alt="user-image"></div>
+                                </div>
+                                <div class="">
+                                    <div class="name">Marie Arnold</div>
+                                    <div class="text-muted">Developer</div>
+                                </div>
+
+
+                            </div>
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm ">
+                                        <div class="avatar-title bg-dark rounded"><i class="mdi mdi-24px mdi-file-pdf"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="name">SRS Document</div>
+                                    <div class="text-muted">25.5 Mb</div>
+                                </div>
+
+
+                            </div>
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm ">
+                                        <div class="avatar-title bg-dark rounded"><i class="mdi mdi-24px mdi-file-document-box"></i></div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="name">Design Guide.pdf</div>
+                                    <div class="text-muted">9 Mb</div>
+                                </div>
+
+
+                            </div>
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm ">
+                                        <div class="avatar avatar-sm  ">
+                                            <div class="avatar-title bg-primary rounded"><i class="mdi mdi-24px mdi-code-braces"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="name">response.json</div>
+                                    <div class="text-muted">15 Kb</div>
+                                </div>
+
+
+                            </div>
+                            <div class="list-group-item d-flex  align-items-center">
+                                <div class="m-r-20">
+                                    <div class="avatar avatar-sm ">
+                                        <div class="avatar avatar-sm ">
+                                            <div class="avatar-title bg-info rounded"><i class="mdi mdi-24px mdi-file-excel"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="name">June Accounts.xls</div>
+                                    <div class="text-muted">6 Mb</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
-          </div>
         </div>
-        <div class="">
-          <div class="bg-dark text-muted container-fluid p-b-10 text-center text-overline">
-            results
-          </div>
-          <div class="list-group list  ">
-
-
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm "><img class="avatar-img rounded-circle" src="assets/img/users/user-3.jpg"
-                                                    alt="user-image"></div>
-              </div>
-              <div class="">
-                <div class="name">Eric Chen</div>
-                <div class="text-muted">Developer</div>
-              </div>
-
-
-            </div>
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm "><img class="avatar-img rounded-circle"
-                                                    src="assets/img/users/user-4.jpg" alt="user-image"></div>
-              </div>
-              <div class="">
-                <div class="name">Sean Valdez</div>
-                <div class="text-muted">Marketing</div>
-              </div>
-
-
-            </div>
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm "><img class="avatar-img rounded-circle"
-                                                    src="assets/img/users/user-8.jpg" alt="user-image"></div>
-              </div>
-              <div class="">
-                <div class="name">Marie Arnold</div>
-                <div class="text-muted">Developer</div>
-              </div>
-
-
-            </div>
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm ">
-                  <div class="avatar-title bg-dark rounded"><i class="mdi mdi-24px mdi-file-pdf"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="">
-                <div class="name">SRS Document</div>
-                <div class="text-muted">25.5 Mb</div>
-              </div>
-
-
-            </div>
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm ">
-                  <div class="avatar-title bg-dark rounded"><i
-                    class="mdi mdi-24px mdi-file-document-box"></i></div>
-                </div>
-              </div>
-              <div class="">
-                <div class="name">Design Guide.pdf</div>
-                <div class="text-muted">9 Mb</div>
-              </div>
-
-
-            </div>
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm ">
-                  <div class="avatar avatar-sm  ">
-                    <div class="avatar-title bg-primary rounded"><i
-                      class="mdi mdi-24px mdi-code-braces"></i></div>
-                  </div>
-                </div>
-              </div>
-              <div class="">
-                <div class="name">response.json</div>
-                <div class="text-muted">15 Kb</div>
-              </div>
-
-
-            </div>
-            <div class="list-group-item d-flex  align-items-center">
-              <div class="m-r-20">
-                <div class="avatar avatar-sm ">
-                  <div class="avatar avatar-sm ">
-                    <div class="avatar-title bg-info rounded"><i
-                      class="mdi mdi-24px mdi-file-excel"></i></div>
-                  </div>
-                </div>
-              </div>
-              <div class="">
-                <div class="name">June Accounts.xls</div>
-                <div class="text-muted">6 Mb</div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </div>
-  </div>
-</div>
 
 
-<script src="assets/vendor/jquery/jquery.min.js"></script>
-<script src="assets/vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="assets/vendor/popper/popper.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/vendor/select2/js/select2.full.min.js"></script>
-<script src="assets/vendor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script src="assets/vendor/listjs/listjs.min.js"></script>
-<script src="assets/vendor/moment/moment.min.js"></script>
-<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
-<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
-<script src="assets/js/atmos.min.js"></script>
-<!--page specific scripts for demo-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="assets/vendor/popper/popper.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/select2/js/select2.full.min.js"></script>
+    <script src="assets/vendor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/vendor/listjs/listjs.min.js"></script>
+    <script src="assets/vendor/moment/moment.min.js"></script>
+    <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="assets/js/atmos.min.js"></script>
+    <!--page specific scripts for demo-->
 </body>
+
 </html>
