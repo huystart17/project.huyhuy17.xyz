@@ -1,9 +1,10 @@
 {
     "devDependencies": {
-        "nodemon": "^1.19.4",
-        "mocha": "^6.2.2",
+        "axios": "^0.18.0",
         "eslint": "^6.7.1",
-        "axios": "^0.18.0"
+        "mocha": "^6.2.2",
+        "nodemon": "^1.19.4",
+        "webpack-cli": "^3.3.10"
     },
     "dependencies": {
         "@feathersjs/authentication": "^4.3.2",
