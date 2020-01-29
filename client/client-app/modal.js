@@ -1,4 +1,5 @@
-const AppModal = {
+import m from "mithril"
+export const AppModal = {
   view(v) {
     return m(".modal.modal-slide-left.fade[id='siteSearchModal'][tabindex='-1'][role='dialog'][aria-labelledby='siteSearchModal'][aria-hidden='true']",
       m(".modal-dialog.modal-dialog-centered[role='document']",

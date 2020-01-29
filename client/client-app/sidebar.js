@@ -1,4 +1,6 @@
-const AppSideBar = {
+import m from "mithril"
+
+export const AppSideBar = {
   view(v) {
     return m("aside.admin-sidebar",
       [

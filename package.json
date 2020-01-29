@@ -21,6 +21,7 @@
         "cors": "^2.8.5",
         "feathers-mongoose": "^8.0.2",
         "helmet": "^3.21.0",
+        "mithril": "^2.0.4",
         "mongodb-core": "^3.2.7",
         "mongoose": "^5.7.11",
         "node-fetch": "^2.6.0",
@@ -28,6 +29,8 @@
         "request": "^2.88.0",
         "request-promise": "^4.2.5",
         "serve-favicon": "^2.5.0",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "webpack": "^4.41.5",
         "winston": "^3.2.1"
     },
     "scripts": {

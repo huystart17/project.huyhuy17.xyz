@@ -1,4 +1,6 @@
-const AppMain = {
+import m from "mithril"
+
+export const AppMain = {
   view(v) {
     return m("main.admin-main",
       [
@@ -718,7 +720,7 @@ let drake = dragula({
   }
 
 });
-const AppMain2 = {
+export const AppMain2 = {
   _key: Date.now(),
   view(v) {
     return m('main.admin-main',

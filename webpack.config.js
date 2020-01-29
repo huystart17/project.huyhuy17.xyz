@@ -12,8 +12,6 @@ const path = require('path')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 
-
-
 /*
  * SplitChunksPlugin is enabled by default and replaced
  * deprecated CommonsChunkPlugin. It automatically identifies modules which
@@ -29,13 +27,13 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
-    client-app: './client-app.js',
-    client-ml5: './client-ml5.js'
+    "client-app": './client/client-app.js',
+    "client-ml5": './client/client-ml5.js'
   },
 
   output: {
-    filename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'public/assetes/app_js/')
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'public/assets/app_js/')
   },
 
   module: {
@@ -56,7 +54,7 @@ module.exports = {
 
   plugins: [new UglifyJSPlugin()],
   mode: 'development',
-
+  watch : true,
   optimization: {
     splitChunks: {
       chunks: 'async',
