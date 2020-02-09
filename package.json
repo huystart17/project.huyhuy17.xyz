@@ -33,7 +33,7 @@
   "scripts": {
     "mocha": "mocha test/ --recursive --exit",
     "start": "node src/",
-    "dev": "npx babel-node src/ --presets es2015",
+    "dev": "nodemon --exec 'npx babel-node src/'",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "crawl_product_hunt": "node ./src/script/product_hunt_list.js",
     "crawl_huyhuy17": "node ./src/script/crawl_huyhuy17.js",

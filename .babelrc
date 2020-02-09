@@ -1,11 +1,9 @@
 {
-    "presets": [
+    "plugins": [
         [
-            "env",
+            "transform-es2015-modules-commonjs",
             {
-                "targets": {
-                    "node": "current"
-                }
+                "allowTopLevelThis": true
             }
         ]
     ]
