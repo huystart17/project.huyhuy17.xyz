@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/mithril/mithril.js"></script>
+    <script src="https://unpkg.com/mithril/stream/stream.js"></script>
+    <script src="https://unpkg.com/bss@1.6.4/bss.js"></script>
+    <style>
+        .highlight {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var appData = {};
+    appData = {
+        textValue: m.stream(),
+        lsOptionData: m.stream(['nguyễn văn x', 'nguyễn văn y', 'nguyễn văn z']),
+        cursorIndex: m.stream(0),
+        selectedIndex: m.stream(0),
+        //
+
+    };
+
+
+    function init(appData) {
+        appData.compileText = appData.textValue.map(value => {
+
+            return value.split(/\ +/).map(item => {
+                if (item.match(/\{\{\w+\}\}/)) {
+                    return [m('b', item), ' '];
+                } else {
+                    return [m('span', item), ' '];
+                }
+            });
+        });
+        appData._lsOption = appData.lsOptionData.map(value => {
+            return value;
+        });
+        appData.currentText = m.stream.combine(function (textValue, cursorIndex) {
+            let text = textValue();
+            let cursor = cursorIndex();
+            let left = '';
+            let right = '';
+            for (let i = 1; i < 100; i++) {
+                if (text[cursor - i] === ' ' || typeof text[cursor - i] === 'undefined') {
+                    break;
+                } else {
+                    left = text [cursor - i] + left;
+                }
+            }
+            for (var i = 0; i < 100; i++) {
+                if (text[cursor + i] === ' ' || typeof text[cursor + i] === 'undefined') {
+                    break;
+                } else {
+                    right = right + text [cursor + i];
+                }
+            }
+            return left + right;
+        }, [appData.textValue, appData.cursorIndex]);
+    }
+
+    init(appData);
+
+    function highlight(text, dom) {
+        var inputText = dom;
+        var innerHTML = inputText.innerHTML;
+        var index = innerHTML.indexOf(text);
+        if (index >= 0) {
+            innerHTML = innerHTML.substring(0, index) + '<span class=\'highlight\'>' + innerHTML.substring(index, index + text.length) + '</span>' + innerHTML.substring(index + text.length);
+            inputText.innerHTML = innerHTML;
+        }
+    }
+
+    let app = {
+        oninit(v) {
+        },
+        view(v) {
+            let {textValue, compileText, selectedIndex, _lsOption, currentText, cursorIndex} = appData;
+
+            let lsOption = _lsOption();
+            return [
+                m('div' + b.color('red'), compileText()),
+                m('input', {
+                    onkeyup({target}) {
+                        textValue(target.value);
+                        cursorIndex(target.selectionStart);
+
+                    },
+                    onkeydown({keyCode}) {
+
+                        if (keyCode === 40) selectedIndex(selectedIndex() + 1);
+                        if (keyCode === 38) selectedIndex(selectedIndex() - 1);
+                        if (selectedIndex() < 0) selectedIndex(0);
+                        if (selectedIndex() === lsOption.length) selectedIndex(lsOption.length - 1);
+                    }
+                }, textValue()),
+                m('',
+                    m('b', 'currentText:'),
+                    m('span', currentText())
+                ),
+                m('ul',
+                    lsOption.map((item, index) => m('li', {
+                        class: selectedIndex() === index ? b.color('red').class : ''
+                    }, item))
+                )
+
+            ];
+
+        }
+    };
+    m.mount(document.body, app);
+</script>
+</body>
+</html>
