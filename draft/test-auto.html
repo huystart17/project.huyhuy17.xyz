@@ -6,6 +6,8 @@
     <script src="https://unpkg.com/mithril/mithril.js"></script>
     <script src="https://unpkg.com/mithril/stream/stream.js"></script>
     <script src="https://unpkg.com/bss@1.6.4/bss.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
+
     <style>
         .highlight {
             text-decoration: underline;
@@ -15,9 +17,12 @@
 <body>
 <script>
     var appData = {};
+    let tempvar = 'Hải sản là những thực phẩm quý giàu chất dinh dưỡng nhưng cũng là nhóm thức ăn gây dị ứng nhiều nhất trong các trường hợp bị dị ứng thực phẩm'.split(' ');
+    tempvar = R.uniqBy(item => item, tempvar);
+    console.log('tempvar', tempvar);
     appData = {
         textValue: m.stream(),
-        lsOptionData: m.stream(['nguyễn văn x', 'nguyễn văn y', 'nguyễn văn z']),
+        lsOptionData: m.stream(tempvar),
         cursorIndex: m.stream(0),
         selectedIndex: m.stream(0),
         //
@@ -39,6 +44,7 @@
         appData._lsOption = appData.lsOptionData.map(value => {
             return value;
         });
+
         appData.currentText = m.stream.combine(function (textValue, cursorIndex) {
             let text = textValue();
             let cursor = cursorIndex();
@@ -60,6 +66,14 @@
             }
             return left + right;
         }, [appData.textValue, appData.cursorIndex]);
+        appData.__lsOption = m.stream.combine(function (lsOptionData, currentText) {
+            console.log("xxx", appData.currentText)
+            if(!currentText()){
+                return lsOptionData()
+            }
+            return lsOptionData().filter(item => item.includes(currentText()));
+        }, [appData.lsOptionData, appData.currentText]);
+        console.log("__lsOption",appData.__lsOption ())
     }
 
     init(appData);
