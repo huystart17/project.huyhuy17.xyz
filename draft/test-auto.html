@@ -6,6 +6,8 @@
     <script src="https://unpkg.com/mithril/mithril.js"></script>
     <script src="https://unpkg.com/mithril/stream/stream.js"></script>
     <script src="https://unpkg.com/bss@1.6.4/bss.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/is_js/0.9.0/is.min.js"
+            integrity="sha256-lnJeulOa3e5IO2EzHr8jKJ3CbT80MBwkS5a+n2ooIr4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/ramda@latest/dist/ramda.min.js"></script>
 
     <style>
@@ -45,7 +47,7 @@
             return value;
         });
 
-        appData.currentText = m.stream.combine(function (textValue, cursorIndex) {
+        appData = m.stream.combine(function (textValue, cursorIndex) {
             let text = textValue();
             let cursor = cursorIndex();
             let left = '';
@@ -66,14 +68,20 @@
             }
             return left + right;
         }, [appData.textValue, appData.cursorIndex]);
-        appData.__lsOption = m.stream.combine(function (lsOptionData, currentText) {
-            console.log("xxx", appData.currentText)
-            if(!currentText()){
-                return lsOptionData()
+        // appData.__lsOption = m.stream.combine(function (lsOptionData, currentText) {
+        //     console.log("xxx", appData.currentText)
+        //     if(!currentText()){
+        //         return lsOptionData()
+        //     }
+        //     return lsOptionData().filter(item => item.includes(currentText()));
+        // }, [appData.lsOptionData, appData.currentText]);
+
+        appData._lsOption = (value) => {
+            if (!value) {
+                return appData.lsOptionData();
             }
-            return lsOptionData().filter(item => item.includes(currentText()));
-        }, [appData.lsOptionData, appData.currentText]);
-        console.log("__lsOption",appData.__lsOption ())
+            return appData.lsOptionData().filter(item => item.includes(value));
+        };
     }
 
     init(appData);
@@ -93,27 +101,36 @@
         },
         view(v) {
             let {textValue, compileText, selectedIndex, _lsOption, currentText, cursorIndex} = appData;
-
-            let lsOption = _lsOption();
+            console.log('redraw');
+            let lsOption = _lsOption(currentText());
             return [
                 m('div' + b.color('red'), compileText()),
                 m('input', {
-                    onkeyup({target}) {
-                        textValue(target.value);
+                    oninput({target}){textValue(target.value)},
+                    onkeydown({keyCode, target,redraw}) {
                         cursorIndex(target.selectionStart);
-
-                    },
-                    onkeydown({keyCode}) {
-
                         if (keyCode === 40) selectedIndex(selectedIndex() + 1);
                         if (keyCode === 38) selectedIndex(selectedIndex() - 1);
                         if (selectedIndex() < 0) selectedIndex(0);
                         if (selectedIndex() === lsOption.length) selectedIndex(lsOption.length - 1);
-                    }
-                }, textValue()),
+                        if (keyCode === 13) {
+                            textValue(lsOption[selectedIndex()] + ' ');
+                            return true;
+                        }
+                        if ([40, 38, 13].some(item => item === keyCode)) {
+                            return false;
+                        }
+                        // redraw = false;
+
+                    },
+                    value: textValue()
+                }),
                 m('',
                     m('b', 'currentText:'),
                     m('span', currentText())
+                ),m('',
+                    m('b', 'textValue:'),
+                    m('span', textValue())
                 ),
                 m('ul',
                     lsOption.map((item, index) => m('li', {
