@@ -8,7 +8,6 @@ var m = require('mithril');
 var render = require('mithril-node-render');
 let comp = {
     view(v) {
-
         return [
             m('h1', 'done'),
             m('h2', 'hello'),

@@ -1,4 +1,4 @@
 {
-  "watch": ["./src/server.js", "./src/"],
+  "watch": ["bin"],
   "ext": "js, css"
 }

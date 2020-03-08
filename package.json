@@ -1,68 +1,73 @@
 {
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/node": "^7.8.4",
-    "axios": "^0.18.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "eslint": "^6.7.1",
-    "mocha": "^6.2.2",
-    "nodemon": "^1.19.4",
-    "puppeteer": "^2.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  },
-  "dependencies": {
-    "@koa/router": "^8.0.8",
-    "@tensorflow/tfjs-node": "^1.5.2",
-    "compression": "^1.7.4",
-    "cors": "^2.8.5",
-    "helmet": "^3.21.0",
-    "koa": "^2.11.0",
-    "koa-bodyparser": "^4.2.1",
-    "koa-mount": "^4.0.0",
-    "koa-static": "^5.0.0",
-    "mithril": "^2.0.4",
-    "mithril-node-render": "^3.0.0",
-    "mongodb-core": "^3.2.7",
-    "mongoose": "^5.7.11",
-    "node-fetch": "^2.6.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
-    "serve-favicon": "^2.5.0",
-    "winston": "^3.2.1"
-  },
-  "scripts": {
-    "mocha": "mocha test/ --recursive --exit",
-    "start": "node src/",
-    "dev": "nodemon --exec 'npx babel-node src/'",
-    "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "crawl_product_hunt": "node ./src/script/product_hunt_list.js",
-    "crawl_huyhuy17": "node ./src/script/crawl_huyhuy17.js",
-    "test": "npm run eslint && npm run mocha"
-  },
-  "engines": {
-    "npm": ">= 3.0.0",
-    "node": "^8.0.0"
-  },
-  "directories": {
-    "config": "config/",
-    "test": "test/",
-    "lib": "src"
-  },
-  "bugs": {},
-  "contributors": [],
-  "author": {
-    "email": "huynguyenquang@enbac.com",
-    "name": "huyhuy17-site"
-  },
-  "keywords": [
-    "huyhuy17"
-  ],
-  "main": "src",
-  "homepage": "",
-  "version": "0.0.0",
-  "description": "Các tool của huy",
-  "name": "abc.huyhuy17.xyz"
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/node": "^7.8.4",
+        "axios": "^0.18.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-es2015": "^6.24.1",
+        "eslint": "^6.7.1",
+        "mocha": "^6.2.2",
+        "nodemon": "^1.19.4",
+        "pm2": "^4.2.3",
+        "puppeteer": "^2.0.0",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
+    },
+    "dependencies": {
+        "@koa/router": "^8.0.8",
+        "@tensorflow/tfjs-node": "^1.5.2",
+        "compression": "^1.7.4",
+        "cors": "^2.8.5",
+        "helmet": "^3.21.0",
+        "koa": "^2.11.0",
+        "koa-bodyparser": "^4.2.1",
+        "koa-mount": "^4.0.0",
+        "koa-static": "^5.0.0",
+        "mithril": "^2.0.4",
+        "mithril-node-render": "^3.0.0",
+        "mongodb-core": "^3.2.7",
+        "mongoose": "^5.7.11",
+        "node-fetch": "^2.6.0",
+        "node-telegram-bot-api": "^0.40.0",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.5",
+        "serve-favicon": "^2.5.0",
+        "winston": "^3.2.1"
+    },
+    "scripts": {
+        "mocha": "mocha test/ --recursive --exit",
+        "start": "node src/",
+        "build_server_dev": "webpack --config ./webpack.server.config.js",
+        "run_server_dev": "npx pm2 start ecosystem.config.js",
+        "run_autoreload_dev": "nodemon --exec 'npx pm2 reload ecosystem.config.js'",
+        "dev": "nodemon --exec 'npx babel-node src/'",
+        "eslint": "eslint src/. test/. --config .eslintrc.json",
+        "crawl_product_hunt": "node ./src/script/product_hunt_list.js",
+        "crawl_huyhuy17": "node ./src/script/crawl_huyhuy17.js",
+        "test": "npm run eslint && npm run mocha"
+    },
+    "engines": {
+        "npm": ">= 3.0.0",
+        "node": "^8.0.0"
+    },
+    "directories": {
+        "config": "config/",
+        "test": "test/",
+        "lib": "src"
+    },
+    "bugs": {},
+    "contributors": [],
+    "author": {
+        "email": "huynguyenquang@enbac.com",
+        "name": "huyhuy17-site"
+    },
+    "keywords": [
+        "huyhuy17"
+    ],
+    "main": "src",
+    "homepage": "",
+    "version": "0.0.0",
+    "description": "Các tool của huy",
+    "name": "abc.huyhuy17.xyz"
 }
