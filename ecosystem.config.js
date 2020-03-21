@@ -3,8 +3,10 @@ module.exports = {
         name: 'API',
         script: 'bin/server.js',
         instances : 2,
+        // args:' --inspect',
         env: {
             NODE_ENV: 'development'
+
         },
         env_production: {
             NODE_ENV: 'production'

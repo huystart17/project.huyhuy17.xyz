@@ -5,20 +5,28 @@ export const debuggerTool = {
         return async function (ctx, next) {
             try {
                 await next();
-                throw new Error("xxx");
-                console.log("This is done of request")
             } catch (err) {
-                let str =                     err.stack;
+                let str = err.stack;
                 ctx.body = str;
             }
         }
     },
     debug_time() {
         return async function (ctx, next) {
+
+
             const start = Date.now();
             await next();
             const ms = Date.now() - start;
-            // myTelegramBot.send(`${ctx.url} : ${ms}ms`);
+            if (![
+                '/favicon.ico',
+                // '/'
+            ].includes(ctx.path)) {
+                myTelegramBot.send_msg({
+                    msg: `${ctx.url} : ${ms}ms `
+                });
+            }
+
             ctx.set('X-Response-Time', `${ms}ms`);
         }
     }
